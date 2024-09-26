@@ -9,10 +9,9 @@ int main(int argc, char const *argv[])
         
         return 1;
     }
-    
+
     int a = std::atoi(argv[1]);
     int b = std::atoi(argv[2]);
-
     std::cout << my_mul(a, b) << '\n';
 
     return 0;
