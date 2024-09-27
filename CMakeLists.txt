@@ -1,7 +1,8 @@
 cmake_minimum_required(VERSION 3.14)
 project(sample_cpp_project)
 
-add_executable(main main.cpp my_mul.cpp)
+include_directories(include)
+add_executable(main main.cpp src/my_mul.cpp)
 
 include(FetchContent)
 FetchContent_Declare(
@@ -12,7 +13,7 @@ FetchContent_Declare(
 FetchContent_MakeAvailable(googletest)
 
 enable_testing()
-add_executable(tests test_mul.cpp my_mul.cpp)
+add_executable(tests test_mul.cpp src/my_mul.cpp)
 target_link_libraries(tests gtest_main)
 
 include(GoogleTest)
