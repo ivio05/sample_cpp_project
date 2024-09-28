@@ -20,7 +20,7 @@ jobs:
       - uses: actions/download-artifact@v4
         with:
           name: binaries
-      - run: ./build/main 7 8
+      - run: chmod +x main && ./main
 
 
   tests:
@@ -45,7 +45,4 @@ jobs:
     needs: build
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/download-artifact@v4
-        with:
-          name: binaries
       - run: find doc/html/index.html
