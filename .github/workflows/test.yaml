@@ -20,7 +20,7 @@ jobs:
       - uses: actions/download-artifact@v4
         with:
           name: binaries
-      - run: chmod +x main && ./main 7 8
+      - run: chmod +x main && ./main 8 9
 
 
   tests:
@@ -44,4 +44,4 @@ jobs:
   documentation:
     runs-on: ubuntu-latest
     steps:
-      - run: ls
+      - run: find ../doc/html/index.html
