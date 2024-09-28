@@ -42,29 +42,32 @@ jobs:
       - run: chmod +x benches && ./benches
   
   deploy:
-      environment:
-        name: github-pages
-        url: ${{ steps.deployment.outputs.page_url }}
-      runs-on: ubuntu-latest
-      steps:
-        - name: Checkout
-          uses: actions/checkout@v4
-        - name: Setup Pages
-          uses: actions/configure-pages@v4
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Setup Pages
+        uses: actions/configure-pages@v4
 
-        # Install Doxygen
-        - name: Install Doxygen
-          run: sudo apt install doxygen && doxygen --version
-          
-        # Create documentation   
-        - name: Create documentation     
-          run: doxygen
-          
-        - name: Upload artifact
-          uses: actions/upload-pages-artifact@v4
-          with:
-            path: './html/'
-        - name: Deploy to GitHub Pages
-          id: deployment
-          uses: actions/deploy-pages@v4
-    
+      # Install Doxygen
+      - name: Install Doxygen
+        run: sudo apt install doxygen && doxygen --version
+
+      - name: Install Graphviz
+        run: sudo apt install graphviz
+        
+      # Create documentation   
+      - name: Create documentation     
+        run: doxygen
+        
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          # Upload entire repository
+          path: './html/'
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
