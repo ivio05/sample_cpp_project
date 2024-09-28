@@ -47,4 +47,4 @@ jobs:
     steps:
       - uses: mattnotmitt/doxygen-action@v1.9.5
         with:
-        doxyfile-path: 'Doxygen'
+        doxyfile-path: '.'
