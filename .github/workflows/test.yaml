@@ -44,5 +44,5 @@ jobs:
   documentation:
     runs-on: ubuntu-latest
     steps:
-      - run: cd ../doc
+      - run: cd .. && ls
     
