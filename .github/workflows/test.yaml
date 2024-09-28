@@ -44,5 +44,6 @@ jobs:
   documentation:
     runs-on: ubuntu-latest
     steps:
-      - run: cd .. && ls
+      - uses: actions/checkout@v4
+      - run: find doc/html/index.html
     
