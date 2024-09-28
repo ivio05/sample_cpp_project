@@ -20,7 +20,7 @@ jobs:
       - uses: actions/download-artifact@v4
         with:
           name: binaries
-      - run: ./main 7 8
+      - run: ./build/main 7 8
 
 
   tests:
@@ -48,4 +48,4 @@ jobs:
       - uses: actions/download-artifact@v4
         with:
           name: binaries
-      - run: firefox doc/html/index.html
+      - run: find doc/html/index.html
