@@ -44,4 +44,4 @@ jobs:
   documentation:
     runs-on: ubuntu-latest
     steps:
-      - run: find doc/html/index.html
+      - run: find ./doc/html/index.html
